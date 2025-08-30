@@ -1,14 +1,14 @@
 # 🚀 Elix - Executive Learning Interface eXpert
 
 <div align="center">
-  <img src="renderer/src/assets/Elix-logo.png" alt="Elix Logo" width="200"/>
+  <img src="renderer/src/assets/Elix-logo.png" alt="ChronOs Logo" width="200"/>
   
   *Your Words, Our Execution*
 </div>
 
 ## 🌟 Overview
 
-Elix is a cutting-edge desktop AI assistant that revolutionizes how you interact with your computer. Built with modern technologies and a focus on user experience, Elix combines voice-first interaction with powerful AI capabilities to make your digital life more efficient and enjoyable.
+ChronOs is a cutting-edge desktop AI assistant that revolutionizes how you interact with your computer. Built with modern technologies and a focus on user experience, Elix combines voice-first interaction with powerful AI capabilities to make your digital life more efficient and enjoyable.
 
 ## ✨ Key Features
 
