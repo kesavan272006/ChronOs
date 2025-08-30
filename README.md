@@ -1,322 +1,226 @@
-# 🚀 ChronOS - The Time-Shifted Work OS
+# 🚀 Elix - Executive Learning Interface eXpert
 
 <div align="center">
-  <img src="renderer/src/assets/ChronOS-logo.png" alt="ChronOS Logo" width="200"/>
+  <img src="renderer/src/assets/elix-logo.jpg" alt="ChronOs Logo" width="200"/>
   
-  *Your Work, Prepared Before You Need It*
+  *Your Words, Our Execution*
 </div>
 
 ## 🌟 Overview
 
-ChronOS is a revolutionary desktop AI assistant that transforms how you interact with your work. Powered by **Elix** - our intelligent voice interface - ChronOS flips productivity from reactive to proactive. Instead of you preparing for work, ChronOS prepares the work for you.
-
-Built with modern technologies and a focus on seamless user experience, ChronOS combines voice-first interaction with powerful AI capabilities to eliminate meta-work and reclaim your cognitive cycles.
+ChronOs is a cutting-edge desktop AI assistant that revolutionizes how you interact with your computer. Built with modern technologies and a focus on user experience, Elix combines voice-first interaction with powerful AI capabilities to make your digital life more efficient and enjoyable.
 
 ## ✨ Key Features
 
-### 🎙️ Elix Voice-First Interface
-- **Natural Voice Commands**: Activate with "ChronOS" followed by your command
-- **Hands-Free Operation**: Continuous voice recording in Developer Mode
-- **Smart Keyword Recognition**: Executes commands between "ChronOS" and "dot"
-- **Real-time Processing**: Instant voice command execution with visual feedback
+### 🎙️ Voice-First Interface
+- **Natural Voice Commands**: Activate with "Elix" followed by your command and "dot"
+- **Voice-to-Text**: Seamless speech recognition for hands-free operation
+- **Text-to-Speech**: Natural-sounding responses with customizable voice settings
+- **Developer Mode**: 
+  - Continuous voice recording when enabled
+  - Only executes commands between "Elix" and "dot" keywords
+  - Real-time voice command processing
+  - Visual feedback during recording
 
-### ⚡ Predictive Artifact Factory
-- **Auto-Generated Briefs**: Meeting agendas and pre-reads before you ask
-- **Smart Drafts**: Email templates, reports, and PR descriptions based on context
-- **Proactive Notes**: Post-meeting summaries prepared in advance
-- **Workflow Templates**: Ready-to-edit templates for routine tasks
-
-### 🛡️ Attention Exchange System
-- **Focus Protection**: Automatically guards your deep work periods
-- **Smart Notification Bundling**: Groups low-priority alerts into focus-friendly slots
-- **Meeting Negotiation**: Suggests better times for non-critical meetings
-- **Urgency Classification**: Only interrupts for truly critical matters
-
-### 🔮 Organizational Simulation
-- **Risk Prediction**: Runs "what-if" scenarios on projects and deadlines
-- **Bottleneck Detection**: Identifies potential blockers before they occur
-- **Load Balancing**: Suggests optimal task distribution across teams
-- **Heatmap Visualization**: Visual risk assessment for projects
-
-### 🤖 AI-Powered Intelligence
-- **Google Gemini AI Integration**: State-of-the-art natural language processing
-- **Context-Aware Responses**: Maintains conversation history and context
-- **Multi-Tool Integration**: Connects with Slack, Calendar, Jira, GitHub
-- **Image Analysis**: Advanced computer vision for image insights
+### 🤖 AI-Powered Assistance
+- **Smart Chat Interface**: Engage in natural conversations with AI
+- **Image Analysis**: Upload and analyze images with AI-powered insights
+- **Context-Aware Responses**: Maintains conversation context for coherent interactions
+- **Natural Language Processing**: Understands and responds to complex queries
+- **Google Gemini AI Integration**: Powered by state-of-the-art AI technology
+- **Chat History Management**:
+  - Persistent chat history storage in Firebase
+  - Multiple chat sessions support
+  - Sidebar navigation for chat history
+  - Real-time chat updates
+  - Chat session persistence across app restarts
+  - Easy switching between different conversations
+  - Automatic chat organization by date/time
 
 ### 📱 Smart Application Control
-- **Universal App Launcher**: Supports 100+ desktop and web applications
-- **Protocol Handling**: Manages http, https, and custom app protocols
-- **Smart Path Resolution**: Intelligent application discovery and launching
-- **Cross-Platform Support**: Windows, with macOS and Linux coming soon
+- **Intelligent App Launcher**: 
+  - Extensive app mapping system
+  - Supports 100+ applications
+  - Handles both desktop apps and web protocols
+  - Smart path resolution for Windows applications
+  - Fallback mechanisms for missing applications
+  - Browser protocol support (http, https)
+  - Communication app protocols (whatsapp://, discord://, etc.)
 
-### 💾 Chat History & Context
-- **Persistent Conversations**: All chats saved and organized automatically
-- **Context Threading**: Maintains continuous context across sessions
-- **Searchable History**: Easy access to past decisions and discussions
-- **Multi-Session Support**: Switch between conversations seamlessly
+- **Supported Categories**:
+  - 🌐 Browsers (Chrome, Firefox, Edge, Opera, Brave)
+  - 📝 Office Suite (Word, Excel, PowerPoint, Access)
+  - 💻 Development Tools (VS Code, Git, Terminal)
+  - 🎵 Media Players (VLC, Spotify, iTunes)
+  - 💬 Communication Apps (WhatsApp, Discord, Slack, Teams)
+  - 🎮 Gaming Platforms (Steam, Epic, Origin)
+  - 🛠️ System Tools (Control Panel, Task Manager)
+  - And many more...
+
+### ⏰ Intelligent Reminder System
+- **Natural Language Processing**:
+  - Understands various time formats
+  - Handles relative time expressions
+  - Supports recurring reminders
+  - Smart date parsing
+
+- **Reminder Features**:
+  - Time-based notifications
+  - Message extraction from commands
+  - Automatic timezone handling
+  - Persistent storage in Firebase
+  - Real-time reminder checks
+  - Visual and audio notifications
+
+- **Example Commands**:
+  ```
+  "Elix remind me to call John at 3pm dot"
+  "Elix set a reminder for team meeting tomorrow at 10am dot"
+  "Elix remind me about the project deadline in 2 days dot"
+  ```
+
+### 🎨 Modern UI/UX
+- **Elegant Dark Theme**: Eye-friendly dark mode interface
+- **Responsive Design**: Adapts to different screen sizes
+- **Real-time Chat Interface**: Smooth message updates
+- **Image Preview**: Visual feedback for image uploads
+- **Animated Transitions**: Smooth and engaging user experience
+- **Customizable Interface**: Personalize your experience
+
+### 🔒 Security & Privacy
+- **Firebase Authentication**: Secure user authentication
+- **Data Encryption**: Secure data storage and transmission
+- **Local-First Approach**: Optional cloud sync for privacy
+- **Secure File Handling**: Safe image and file processing
 
 ## 🛠️ Technical Architecture
 
-### Frontend (Elix Interface)
-- **React 18**: Modern UI framework with hooks
-- **Material-UI**: Beautiful component library
-- **Framer Motion**: Smooth animations and transitions
-- **Web Speech API**: Browser-native speech recognition
-- **Custom Audio Pipeline**: Efficient wake-word detection
+### Frontend
+- **React**: Modern UI framework
+- **Material-UI**: Component library
+- **Framer Motion**: Smooth animations
+- **SCSS**: Advanced styling
 
-### Backend (ChronOS Engine)
+### Backend
 - **Electron**: Cross-platform desktop framework
-- **Node.js**: Runtime environment
-- **FastAPI/Express**: REST API and agent orchestration
-- **Firebase**: Authentication and real-time database
-- **PostgreSQL**: Persistent data storage
+- **Firebase**: Authentication and database
+- **Google Gemini AI**: AI processing
+- **AssemblyAI**: Speech recognition
 
-### AI & Integrations
-- **Google Gemini AI**: Natural language processing
-- **OpenAI API**: Advanced text generation
-- **Slack API**: Real-time messaging integration
-- **Google Calendar API**: Schedule management
-- **Jira/GitHub APIs**: Project and code integration
+### Development Tools
+- **Vite**: Fast development server
+- **Electron Packager**: Application packaging
+- **Concurrently**: Parallel task execution
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+ (LTS version recommended)
-- npm or yarn package manager
-- Windows 10/11, macOS 10.14+, or Linux Ubuntu 16.04+
+- Node.js (Latest LTS version)
+- npm or yarn
+- Windows 10/11
 
 ### Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/chronos.git
-cd chronos
-# Install Dependencies:
-# Install main dependencies
-npm install
+git clone https://github.com/yourusername/elix.git
+cd elix
+```
 
-# 2. Install renderer dependencies
+2. Install dependencies:
+```bash
+npm install
 cd renderer
 npm install
-cd ..
-# 3. Set up environment variables:
-cp .env.example .env
-# Add your API keys to the .env file
-# 4. Start the development server:
+```
+
+3. Start the development server:
+```bash
 npm run dev
-# Build for Production
-# Build for current platform
+```
+
+### Building for Production
+```bash
 npm run build
-
-# Build for specific platform
-npm run build:win
-npm run build:mac
-npm run build:linux
-
-# Create distributable package
 npm run package
-#💡 Usage Examples
-Voice Command Syntax
-// Basic syntax
-"ChronOS [command] dot"
+```
 
-// Examples
-"ChronOS open calculator dot"
-"ChronOS prepare my meeting brief for 3pm dot"
-"ChronOS analyze project risks dot"
-"ChronOS protect my focus time until noon dot"
-#API Integration Example
-// ChronOS Engine API client
-const chronos = new ChronOSClient({
-  apiKey: process.env.CHRONOS_API_KEY,
-  integrations: {
-    slack: process.env.SLACK_TOKEN,
-    calendar: process.env.GOOGLE_CALENDAR_TOKEN,
-    jira: process.env.JIRA_CREDENTIALS
-  }
-});
+## 💡 Usage Examples
 
-// Generate meeting brief proactively
-async function generateMeetingBrief(meetingId) {
-  const brief = await chronos.artifacts.generateMeetingBrief(meetingId, {
-    includeAgenda: true,
-    includeRisks: true,
-    includeRelatedTickets: true
-  });
-  return brief;
-}
-#Attention Exchange Configuration
-// Configure focus protection
-chronos.attention.setFocusSchedule({
-  deepWorkBlocks: [
-    { start: "09:00", end: "12:00", days: [1, 2, 3, 4, 5] },
-    { start: "14:00", end: "16:00", days: [2, 4] }
-  ],
-  notificationRules: {
-    urgencyThreshold: 0.7,
-    batchInterval: "30 minutes",
-    allowedInterruptions: ["manager", "critical_bugs"]
-  }
-});
-#🔧 Development
-Project Structure
-chronos/
-├── main/                 # Electron main process
-│   ├── chronos-engine/  # Core ChronOS logic
-│   ├── voice-processor/ # Voice command handling
-│   └── integrations/    # Third-party API connections
-├── renderer/            # React frontend (Elix interface)
-│   ├── src/
-│   │   ├── components/  # UI components
-│   │   ├── hooks/       # Custom React hooks
-│   │   ├── services/    # API services
-│   │   └── utils/       # Utility functions
-│   └── public/
-├── shared/              # Code shared between main and renderer
-└── assets/              # App icons and resources
-Adding New Integrations
+### Chat History Management
+1. **Accessing Chat History**:
+   - Click the menu icon to open the sidebar
+   - View all your previous conversations
+   - Switch between different chat sessions
+   - Continue conversations from where you left off
 
-Create a new service in main/integrations/:
+2. **Chat Organization**:
+   - Chats are automatically organized by date
+   - Each chat maintains its full context
+   - Easy navigation through past conversations
+   - Real-time updates as you chat
 
-// main/integrations/my-service.js
-class MyServiceIntegration {
-  constructor(config) {
-    this.config = config;
-    this.connected = false;
-  }
+3. **Example Usage**:
+   ```
+   - Open sidebar to view chat history
+   - Click on any previous chat to continue
+   - Start new chat with the "+" button
+   - All conversations are saved automatically
+   ```
 
-  async connect() {
-    // Implementation here
-  }
+### Voice Commands
+```
+"Elix open calculator dot"
+"Elix search for AI trends dot"
+"Elix set reminder for meeting at 3pm dot"
+"Elix open whatsapp dot"
+"Elix summarize this article dot"
+```
 
-  async fetchData(params) {
-    // Implementation here
-  }
-}
+### Image Analysis
+1. Click the image upload button
+2. Select an image
+3. Ask questions about the image
+4. Get AI-powered insights
 
-module.exports = MyServiceIntegration;
+### Setting Reminders
+```
+"Elix remind me to call John at 3pm dot"
+"Elix set a reminder for team meeting tomorrow at 10am dot"
+```
 
+## 🔧 Developer Mode
+The Developer Mode is a powerful feature that enables continuous voice command processing:
 
-Register the integration in the ChronOS engine:
+1. **Activation**:
+   - Toggle the Developer Mode switch in the interface
+   - Visual indicator shows recording status
+   - "🎙️ Listening..." appears when active
 
-// main/chronos-engine/index.js
-const MyServiceIntegration = require('./integrations/my-service');
+2. **How it Works**:
+   - Continuously records audio when enabled
+   - Processes speech in real-time
+   - Only executes commands between "Elix" and "dot"
+   - Provides visual feedback during recording
 
-class ChronOSEngine {
-  constructor() {
-    this.integrations = {
-      // ... other integrations
-      myService: null
-    };
-  }
+3. **Use Cases**:
+   - Hands-free operation
+   - Continuous command processing
+   - Testing voice commands
+   - Debugging voice recognition
 
-  async setupIntegrations() {
-    // ... other setup
-    this.integrations.myService = new MyServiceIntegration(
-      config.myService
-    );
-    await this.integrations.myService.connect();
-  }
-}
+## 📝 License
+ISC License
 
-📊 API Reference
-ChronOS Engine API
-// Core methods
-chronos.artifacts.generateMeetingBrief(meetingId, options);
-chronos.artifacts.createDraftEmail(context, options);
-chronos.attention.protectFocusTime(schedule);
-chronos.attention.bundleNotifications(rules);
-chronos.simulation.analyzeRisks(projectId);
-chronos.simulation.predictBottlenecks(teamId);
+## 👨‍💻 Author
+Created by Kesavan G
 
-// Event system
-chronos.events.on('artifact.generated', (artifact) => {});
-chronos.events.on('attention.required', (notification) => {});
-chronos.events.on('risk.detected', (risk) => {});
+## 🤝 Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Elix Interface API
-// Voice control
-elix.voice.startListening();
-elix.voice.stopListening();
-elix.voice.addCommand(pattern, handler);
-
-// UI management
-elix.ui.showNotification(message, options);
-elix.ui.openArtifact(artifact);
-elix.ui.showSimulationResults(data);
-
-🔒 Security & Privacy
-
-ChronOS is built with security and privacy as first-class concerns:
-
-End-to-end Encryption: All data encrypted in transit and at rest
-
-Local Processing: Voice processing and sensitive operations happen locally when possible
-
-Permission System: Granular control over what data ChronOS can access
-
-Data Minimization: Only collects data necessary for functionality
-
-Transparent Operations: Clear indicators when cloud processing occurs
-
-🤝 Contributing
-
-We welcome contributions! Please see our Contributing Guide
- for details.
-
-Fork the repository
-
-Create a feature branch: git checkout -b feature/amazing-feature
-
-Commit your changes: git commit -m 'Add amazing feature'
-
-Push to the branch: git push origin feature/amazing-feature
-
-Open a Pull Request
-
-📝 License
-
-This project is licensed under the ISC License - see the LICENSE
- file for details.
-
-🐛 Troubleshooting
-
-Common issues and solutions:
-
-Voice recognition not working
-
-Check microphone permissions
-
-Ensure stable internet connection for cloud processing
-
-Integration connection failures
-
-Verify API keys and credentials
-
-Check network connectivity
-
-Performance issues
-
-Close other resource-intensive applications
-
-Check system resource usage
-
-For more help, join our Discord community
- or create an issue on GitHub.
-
-🌟 Future Roadmap
-
- Multi-language support
-
- Advanced plugin system
-
- Mobile companion app
-
- AI model fine-tuning platform
-
- Enterprise features
-
- Advanced simulation capabilities
-
- Cross-platform synchronization
+## 🌟 Future Enhancements
+- Multi-language support
+- Custom voice commands
+- Advanced task automation
+- Plugin system
+- Cross-platform support 
