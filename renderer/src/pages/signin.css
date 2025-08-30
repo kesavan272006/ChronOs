@@ -1,6 +1,8 @@
 .signin-container {
     min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
     height: 100vh;
+    height: 100dvh;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -11,7 +13,8 @@
     left: 0;
     overflow: hidden;
     margin: 0;
-    padding: 0;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .signin-background {
@@ -68,6 +71,7 @@
     position: relative;
     z-index: 3;
     transition: all 0.3s ease;
+    animation: formGlow 4s ease-in-out infinite;
 }
 
 .signin-form:hover {
@@ -92,6 +96,7 @@
     animation: textClipShine 6s linear infinite;
     text-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
     letter-spacing: -0.02em;
+    line-height: 1.1;
 }
 
 .input-group {
@@ -119,6 +124,8 @@
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    box-sizing: border-box;
+    font-family: inherit;
 }
 
 .input-field:focus {
@@ -155,6 +162,8 @@
     box-shadow: 
         0 4px 15px rgba(59, 130, 246, 0.2),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    min-height: 52px;
+    font-family: inherit;
 }
 
 .google-button:hover {
@@ -213,12 +222,8 @@
 }
 
 @keyframes textClipShine {
-    0% {
-        background-position: -200% center;
-    }
-    100% {
-        background-position: 200% center;
-    }
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
 }
 
 @keyframes wavePulse {
@@ -255,51 +260,372 @@
     }
 }
 
-.signin-form {
-    animation: formGlow 4s ease-in-out infinite;
+/* Tablet Responsive Design */
+@media (max-width: 768px) {
+    .signin-container {
+        padding: 16px;
+    }
+
+    .signin-form {
+        padding: 3rem 2.5rem;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .signin-title {
+        font-size: 2.5rem;
+        margin-bottom: 2.2rem;
+    }
+
+    .input-group {
+        margin-bottom: 1.6rem;
+    }
+
+    .input-field {
+        padding: 1rem 1.1rem;
+        font-size: 16px; /* Prevents zoom on iOS */
+        border-radius: 12px;
+    }
+
+    .google-button {
+        padding: 1rem 1.3rem;
+        font-size: 1.05rem;
+        min-height: 54px;
+        border-radius: 12px;
+    }
+
+    .google-button img {
+        width: 22px;
+        height: 22px;
+    }
 }
 
+/* Mobile Responsive Design */
 @media (max-width: 640px) {
     .signin-container {
-        padding: 1rem;
+        padding: 12px;
+        align-items: center;
+        justify-content: center;
     }
 
     .signin-form {
         padding: 2.5rem 2rem;
         margin: 0;
-        border-radius: 20px;
+        border-radius: 18px;
         width: 100%;
         max-width: none;
+        min-width: 280px;
     }
 
     .signin-title {
-        font-size: 2.3rem;
+        font-size: 2.2rem;
         margin-bottom: 2rem;
+        line-height: 1.2;
+    }
+
+    .input-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .input-label {
+        font-size: 0.95rem;
+        margin-bottom: 0.6rem;
     }
 
     .input-field {
         padding: 0.9rem 1rem;
-        font-size: 0.95rem;
+        font-size: 16px; /* Prevents zoom on iOS */
+        border-radius: 12px;
+        min-height: 48px;
     }
 
     .google-button {
         padding: 0.9rem 1.2rem;
         font-size: 1rem;
+        min-height: 50px;
+        border-radius: 12px;
+        gap: 0.8rem;
+    }
+
+    .google-button img {
+        width: 20px;
+        height: 20px;
     }
 }
 
+/* Small Mobile Devices */
 @media (max-width: 480px) {
     .signin-container {
-        padding: 0.5rem;
+        padding: 8px;
+        align-items: center;
+        justify-content: center;
     }
 
     .signin-form {
         padding: 2rem 1.5rem;
         margin: 0;
         width: 100%;
+        border-radius: 16px;
+        min-width: 260px;
     }
 
     .signin-title {
-        font-size: 2rem;
+        font-size: 1.9rem;
+        margin-bottom: 1.8rem;
     }
+
+    .input-group {
+        margin-bottom: 1.4rem;
+    }
+
+    .input-label {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .input-field {
+        padding: 0.8rem 0.9rem;
+        font-size: 16px;
+        border-radius: 10px;
+        min-height: 44px;
+    }
+
+    .google-button {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+        min-height: 48px;
+        border-radius: 10px;
+        gap: 0.7rem;
+    }
+
+    .google-button img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Very Small Screens */
+@media (max-width: 360px) {
+    .signin-container {
+        padding: 6px;
+        padding-top: 6vh;
+    }
+
+    .signin-form {
+        padding: 1.8rem 1.2rem;
+        border-radius: 14px;
+        min-width: 240px;
+    }
+
+    .signin-title {
+        font-size: 1.7rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .input-field {
+        padding: 0.75rem 0.8rem;
+        min-height: 42px;
+    }
+
+    .google-button {
+        padding: 0.75rem 0.9rem;
+        font-size: 0.9rem;
+        min-height: 46px;
+        gap: 0.6rem;
+    }
+
+    .google-button img {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Landscape Mobile Optimization */
+@media (max-width: 768px) and (orientation: landscape) and (max-height: 500px) {
+    .signin-container {
+        padding: 8px;
+        padding-top: 2vh;
+        align-items: flex-start;
+    }
+
+    .signin-form {
+        padding: 1.5rem 2rem;
+        max-width: 380px;
+        width: 100%;
+        border-radius: 16px;
+    }
+
+    .signin-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .input-group {
+        margin-bottom: 1.2rem;
+    }
+
+    .input-label {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .input-field {
+        padding: 0.7rem 1rem;
+        min-height: 40px;
+        border-radius: 10px;
+    }
+
+    .google-button {
+        padding: 0.7rem 1rem;
+        font-size: 0.95rem;
+        min-height: 44px;
+        border-radius: 10px;
+    }
+
+    .google-button img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .signin-form:hover {
+        transform: none;
+    }
+
+    .google-button:hover {
+        transform: none;
+        background: linear-gradient(135deg, #1e293b, #334155, #3b82f6);
+        box-shadow: 
+            0 4px 15px rgba(59, 130, 246, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .google-button:hover::before,
+    .google-button:hover::after {
+        display: none;
+    }
+
+    .google-button:active {
+        transform: scale(0.98);
+        background: linear-gradient(135deg, #334155, #2563eb, #1d4ed8);
+    }
+
+    .input-field:focus {
+        transform: none;
+    }
+}
+
+/* Safe Area Insets for Modern Mobile Devices */
+@supports (padding: env(safe-area-inset-bottom)) {
+    .signin-container {
+        padding-bottom: calc(20px + env(safe-area-inset-bottom));
+        padding-left: calc(20px + env(safe-area-inset-left));
+        padding-right: calc(20px + env(safe-area-inset-right));
+        padding-top: calc(20px + env(safe-area-inset-top));
+    }
+
+    @media (max-width: 640px) {
+        .signin-container {
+            padding-bottom: calc(12px + env(safe-area-inset-bottom));
+            padding-left: calc(12px + env(safe-area-inset-left));
+            padding-right: calc(12px + env(safe-area-inset-right));
+            padding-top: calc(10vh + env(safe-area-inset-top));
+        }
+    }
+
+    @media (max-width: 480px) {
+        .signin-container {
+            padding-bottom: calc(8px + env(safe-area-inset-bottom));
+            padding-left: calc(8px + env(safe-area-inset-left));
+            padding-right: calc(8px + env(safe-area-inset-right));
+            padding-top: calc(8vh + env(safe-area-inset-top));
+        }
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .signin-form {
+        border-width: 0.5px;
+    }
+
+    .input-field {
+        border-width: 1px;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .signin-form,
+    .signin-background,
+    .signin-background::before,
+    .signin-background::after,
+    .signin-title {
+        animation: none;
+    }
+
+    .signin-form:hover,
+    .google-button:hover,
+    .input-field:focus {
+        transform: none;
+    }
+
+    .google-button::before {
+        display: none;
+    }
+}
+
+/* Focus visible for accessibility */
+.google-button:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+.input-field:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Loading state for button */
+.google-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.google-button:disabled:hover {
+    transform: none;
+    background: linear-gradient(135deg, #1e293b, #334155, #3b82f6);
+}
+
+/* Form validation states */
+.input-field.error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.input-field.error:focus {
+    border-color: #ef4444;
+    box-shadow: 
+        0 0 0 4px rgba(239, 68, 68, 0.15),
+        0 0 20px rgba(239, 68, 68, 0.2);
+}
+
+/* Loading animation for form */
+@keyframes formAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.signin-form {
+    animation: formAppear 0.6s ease-out, formGlow 4s ease-in-out infinite 0.6s;
 }

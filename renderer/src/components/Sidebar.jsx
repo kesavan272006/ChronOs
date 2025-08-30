@@ -14,7 +14,7 @@ const SidebarContainer = styled(Box)(({ theme, open }) => ({
   bottom: 0,
   width: open ? '280px' : '0',
   background: 'linear-gradient(145deg, #0f172a, #1e293b)',
-  transition: theme.transitions.create('width', {
+  transition: theme.transitions.create(['width', 'transform'], {
     easing: theme.transitions.easing.easeInOut,
     duration: theme.transitions.duration.standard,
   }),
@@ -24,6 +24,45 @@ const SidebarContainer = styled(Box)(({ theme, open }) => ({
   backdropFilter: 'blur(10px)',
   WebkitBackdropFilter: 'blur(10px)',
   boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.1), 4px 0 20px rgba(0, 0, 0, 0.3)',
+  
+  // Mobile-specific styles
+  [theme.breakpoints.down('md')]: {
+    width: open ? '100vw' : '0',
+    maxWidth: '320px',
+    transform: open ? 'translateX(0)' : 'translateX(-100%)',
+    transition: theme.transitions.create('transform', {
+      easing: theme.transitions.easing.easeInOut,
+      duration: theme.transitions.duration.standard,
+    }),
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    width: open ? '100vw' : '0',
+    maxWidth: '280px',
+  },
+}));
+
+const SidebarOverlay = styled(Box)(({ theme, open }) => ({
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  zIndex: 999,
+  opacity: open ? 1 : 0,
+  visibility: open ? 'visible' : 'hidden',
+  transition: theme.transitions.create(['opacity', 'visibility'], {
+    easing: theme.transitions.easing.easeInOut,
+    duration: theme.transitions.duration.standard,
+  }),
+  backdropFilter: 'blur(2px)',
+  WebkitBackdropFilter: 'blur(2px)',
+  display: 'none',
+  
+  [theme.breakpoints.down('md')]: {
+    display: 'block',
+  },
 }));
 
 const CloseButton = styled(IconButton)(({ theme }) => ({
@@ -47,6 +86,14 @@ const CloseButton = styled(IconButton)(({ theme }) => ({
   '&:active': {
     transform: 'scale(0.95)',
   },
+  
+  // Mobile touch improvements
+  [theme.breakpoints.down('md')]: {
+    width: '44px',
+    height: '44px',
+    right: '16px',
+    top: '16px',
+  },
 }));
 
 const NewChatButton = styled(Box)(({ theme }) => ({
@@ -66,6 +113,7 @@ const NewChatButton = styled(Box)(({ theme }) => ({
   fontSize: '14px',
   position: 'relative',
   overflow: 'hidden',
+  minHeight: '48px',
   '&::before': {
     content: '""',
     position: 'absolute',
@@ -88,6 +136,22 @@ const NewChatButton = styled(Box)(({ theme }) => ({
   '&:active': {
     transform: 'translateY(0px)',
   },
+
+  // Mobile optimizations
+  [theme.breakpoints.down('md')]: {
+    padding: '16px 20px',
+    margin: '16px',
+    fontSize: '16px',
+    minHeight: '52px',
+    borderRadius: '16px',
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    padding: '14px 18px',
+    margin: '12px',
+    fontSize: '15px',
+    minHeight: '48px',
+  },
 }));
 
 const ChatList = styled(Box)(({ theme }) => ({
@@ -95,6 +159,7 @@ const ChatList = styled(Box)(({ theme }) => ({
   overflowY: 'auto',
   height: 'calc(100vh - 140px)',
   padding: '0 8px',
+  paddingBottom: '20px',
   '&::-webkit-scrollbar': {
     width: '6px',
   },
@@ -109,6 +174,20 @@ const ChatList = styled(Box)(({ theme }) => ({
   },
   '&::-webkit-scrollbar-thumb:hover': {
     background: 'linear-gradient(to bottom, #60a5fa, #3b82f6)',
+  },
+
+  // Mobile scrollbar
+  [theme.breakpoints.down('md')]: {
+    height: 'calc(100vh - 160px)',
+    padding: '0 12px 30px',
+    '&::-webkit-scrollbar': {
+      width: '4px',
+    },
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    height: 'calc(100vh - 140px)',
+    padding: '0 8px 20px',
   },
 }));
 
@@ -130,6 +209,7 @@ const ChatItem = styled(Box)(({ theme, active }) => ({
     : 'inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 2px 8px rgba(0, 0, 0, 0.2)',
   position: 'relative',
   overflow: 'hidden',
+  minHeight: '60px',
   '&::before': {
     content: '""',
     position: 'absolute',
@@ -156,6 +236,36 @@ const ChatItem = styled(Box)(({ theme, active }) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: '6px',
+
+  // Mobile optimizations
+  [theme.breakpoints.down('md')]: {
+    padding: '16px 18px',
+    margin: '8px 12px',
+    borderRadius: '16px',
+    minHeight: '64px',
+    '&:hover': {
+      transform: 'translateY(-2px)',
+    },
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    padding: '14px 16px',
+    margin: '6px 8px',
+    minHeight: '58px',
+  },
+
+  // Touch device optimizations
+  '@media (hover: none) and (pointer: coarse)': {
+    '&:hover': {
+      transform: 'none',
+    },
+    '&:active': {
+      transform: 'scale(0.98)',
+      background: active 
+        ? 'linear-gradient(135deg, #1d4ed8, #1e40af)' 
+        : 'linear-gradient(135deg, #475569, #64748b)',
+    },
+  },
 }));
 
 const ChatTitle = styled(Box)(({ theme }) => ({
@@ -167,6 +277,14 @@ const ChatTitle = styled(Box)(({ theme }) => ({
   color: '#f1f5f9',
   textShadow: '0 0 8px rgba(241, 245, 249, 0.1)',
   letterSpacing: '0.02em',
+
+  [theme.breakpoints.down('md')]: {
+    fontSize: '16px',
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '15px',
+  },
 }));
 
 const LastMessage = styled(Box)(({ theme }) => ({
@@ -177,6 +295,14 @@ const LastMessage = styled(Box)(({ theme }) => ({
   textOverflow: 'ellipsis',
   opacity: 0.8,
   lineHeight: 1.4,
+
+  [theme.breakpoints.down('md')]: {
+    fontSize: '14px',
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '13px',
+  },
 }));
 
 const SidebarHeader = styled(Box)(({ theme }) => ({
@@ -186,6 +312,16 @@ const SidebarHeader = styled(Box)(({ theme }) => ({
   background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(37, 99, 235, 0.02))',
   backdropFilter: 'blur(10px)',
   WebkitBackdropFilter: 'blur(10px)',
+
+  [theme.breakpoints.down('md')]: {
+    padding: '24px 20px 12px',
+    marginBottom: '12px',
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    padding: '20px 16px 10px',
+    marginBottom: '8px',
+  },
 }));
 
 const SidebarTitle = styled(Box)(({ theme }) => ({
@@ -199,6 +335,17 @@ const SidebarTitle = styled(Box)(({ theme }) => ({
   textShadow: '0 0 20px rgba(59, 130, 246, 0.3)',
   letterSpacing: '0.02em',
   marginTop: '30px',
+
+  [theme.breakpoints.down('md')]: {
+    fontSize: '20px',
+    marginTop: '40px',
+    textAlign: 'center',
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '18px',
+    marginTop: '30px',
+  },
 }));
 
 const Sidebar = ({ open, onToggle, onChatSelect, currentChatId }) => {
@@ -221,6 +368,43 @@ const Sidebar = ({ open, onToggle, onChatSelect, currentChatId }) => {
     return () => unsubscribe();
   }, []);
 
+  // Close sidebar when clicking outside on mobile
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (open && window.innerWidth <= 768) {
+        const sidebar = event.target.closest('[data-sidebar="true"]');
+        if (!sidebar) {
+          onToggle();
+        }
+      }
+    };
+
+    if (open) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [open, onToggle]);
+
+  // Prevent body scroll when sidebar is open on mobile
+  useEffect(() => {
+    if (window.innerWidth <= 768) {
+      if (open) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'unset';
+      }
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [open]);
+
   const handleNewChat = async () => {
     if (!auth.currentUser) return;
 
@@ -234,39 +418,56 @@ const Sidebar = ({ open, onToggle, onChatSelect, currentChatId }) => {
 
     const docRef = await addDoc(chatsRef, newChat);
     onChatSelect(docRef.id);
+    
+    // Close sidebar on mobile after selecting chat
+    if (window.innerWidth <= 768) {
+      onToggle();
+    }
+  };
+
+  const handleChatSelect = (chatId) => {
+    onChatSelect(chatId);
+    
+    // Close sidebar on mobile after selecting chat
+    if (window.innerWidth <= 768) {
+      onToggle();
+    }
   };
 
   return (
-    <SidebarContainer open={open}>
-      <CloseButton onClick={onToggle} size="small">
-        <CloseIcon />
-      </CloseButton>
-      
-      <SidebarHeader>
-        <SidebarTitle>Chat History</SidebarTitle>
-      </SidebarHeader>
+    <>
+      <SidebarOverlay open={open} onClick={onToggle} />
+      <SidebarContainer open={open} data-sidebar="true">
+        <CloseButton onClick={onToggle} size="small">
+          <CloseIcon />
+        </CloseButton>
+        
+        <SidebarHeader>
+          <SidebarTitle>Chat History</SidebarTitle>
+        </SidebarHeader>
 
-      <NewChatButton onClick={handleNewChat}>
-        <AddIcon sx={{ 
-          fontSize: '20px',
-          filter: 'drop-shadow(0 0 4px rgba(59, 130, 246, 0.3))'
-        }} />
-        New Chat
-      </NewChatButton>
+        <NewChatButton onClick={handleNewChat}>
+          <AddIcon sx={{ 
+            fontSize: '20px',
+            filter: 'drop-shadow(0 0 4px rgba(59, 130, 246, 0.3))'
+          }} />
+          New Chat
+        </NewChatButton>
 
-      <ChatList>
-        {chats.map((chat) => (
-          <ChatItem 
-            key={chat.id} 
-            active={chat.id === currentChatId}
-            onClick={() => onChatSelect(chat.id)}
-          >
-            <ChatTitle>{chat.title}</ChatTitle>
-            <LastMessage>{chat.lastMessage || 'No messages yet'}</LastMessage>
-          </ChatItem>
-        ))}
-      </ChatList>
-    </SidebarContainer>
+        <ChatList>
+          {chats.map((chat) => (
+            <ChatItem 
+              key={chat.id} 
+              active={chat.id === currentChatId}
+              onClick={() => handleChatSelect(chat.id)}
+            >
+              <ChatTitle>{chat.title}</ChatTitle>
+              <LastMessage>{chat.lastMessage || 'No messages yet'}</LastMessage>
+            </ChatItem>
+          ))}
+        </ChatList>
+      </SidebarContainer>
+    </>
   );
 };
 
