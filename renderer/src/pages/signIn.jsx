@@ -58,7 +58,7 @@ const SignIn = () => {
     <div className="signin-container">
       <div className="signin-background"></div>
       <div className="signin-form">
-        <h1 className="signin-title">Welcome to ELIX</h1>
+        <h1 className="signin-title">Welcome to ELIX <br />Powered by ChronOs</h1>
         <div className="input-group">
           <label className="input-label">Username</label>
           <input 
