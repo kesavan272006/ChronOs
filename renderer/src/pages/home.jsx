@@ -9,7 +9,7 @@ import Switch from '@mui/material/Switch';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { signOut } from 'firebase/auth';
-import logo from '../assets/Elix-logo.png'
+import logo from '../assets/elix-logo.jpg'
 import Sidebar from '../components/Sidebar';
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';

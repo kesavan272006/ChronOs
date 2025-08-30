@@ -1,7 +1,7 @@
 # 🚀 Elix - Executive Learning Interface eXpert
 
 <div align="center">
-  <img src="renderer/src/assets/Elix-logo.png" alt="ChronOs Logo" width="200"/>
+  <img src="renderer/src/assets/elix-logo.jpg" alt="ChronOs Logo" width="200"/>
   
   *Your Words, Our Execution*
 </div>
