@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './landing.css'
-import logo from '../assets/elix-logo.jpg'
+import logo from '../assets/elix-logo.png'
 
 const Landing = () => {
     const navigate = useNavigate();
