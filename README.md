@@ -1,4 +1,4 @@
-# 🚀 Elix - Executive Learning Interface eXpert
+# 🚀 ChronOS / Elix
 
 <div align="center">
   <img src="renderer/src/assets/elix-logo.jpg" alt="ChronOs Logo" width="200"/>
